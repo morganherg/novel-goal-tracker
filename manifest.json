@@ -1,0 +1,10 @@
+{
+	"id": "novel-goal-tracker",
+	"name": "Novel Goal Tracker",
+	"version": "1.0.0",
+	"minAppVersion": "1.13.0",
+	"description": "Track a novel's word count goal with a live dashboard of daily progress, streaks, and projected finish date.",
+	"author": "morganherg",
+	"authorUrl": "https://github.com/morganherg",
+	"isDesktopOnly": false
+}

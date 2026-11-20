@@ -1,0 +1,40 @@
+{
+	"name": "novel-goal-tracker",
+	"version": "1.0.0",
+	"description": "Track a novel's word count goal with a live dashboard of daily progress, streaks, and projected finish date.",
+	"main": "main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"lint": "eslint .",
+		"test": "node scripts/run-tests.mjs",
+		"preview": "esbuild scripts/preview/preview.ts --bundle --format=iife --alias:obsidian=./tests/obsidian-stub.ts --outfile=.preview-out/preview.js && esbuild scripts/preview/plugin-harness.ts --bundle --format=iife --alias:obsidian=./scripts/preview/obsidian-browser-stub.ts --alias:@codemirror/state=./scripts/preview/codemirror-stub.ts --alias:@codemirror/view=./scripts/preview/codemirror-stub.ts --outfile=.preview-out/harness.js",
+		"test:e2e": "playwright test --project=browser",
+		"test:obsidian": "npm run build && playwright test --project=obsidian"
+	},
+	"keywords": [
+		"obsidian",
+		"writing",
+		"word count",
+		"novel",
+		"goals"
+	],
+	"license": "MIT",
+	"devDependencies": {
+		"@codemirror/state": "6.7.6",
+		"@codemirror/view": "6.43.13",
+		"@eslint/js": "^9.39.4",
+		"@playwright/test": "^1.65.1",
+		"@types/node": "^22.15.17",
+		"esbuild": "0.25.5",
+		"eslint": "^9.39.4",
+		"eslint-plugin-obsidianmd": "^0.4.0",
+		"globals": "^17.6.0",
+		"jiti": "^2.6.1",
+		"obsidian": "1.14.4",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.59.1"
+	}
+}
